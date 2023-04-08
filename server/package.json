@@ -1,0 +1,31 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuantran1295/remitano-fullstack-test.git"
+  },
+  "author": "TuanTran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tuantran1295/remitano-fullstack-test/issues"
+  },
+  "homepage": "https://github.com/tuantran1295/remitano-fullstack-test#readme",
+  "dependencies": {
+    "axios": "^1.3.4",
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mysql": "^2.18.1"
+  }
+}
