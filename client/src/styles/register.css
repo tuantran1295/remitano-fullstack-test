@@ -1,0 +1,359 @@
+.register-page {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.register-page .register-introduce-box {
+    width: 40%;
+    height: 100%;
+}
+
+.register-page .register-box {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.register-page .register-box form {
+    width: 80%;
+    max-width: 700px;
+}
+
+.register-page .register-box .register-form {
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    padding: 40px 50px 40px 50px;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* .register-page .register-box .register-form input{
+    border-radius: 8px;
+    padding: 12px;
+    width: 100%;
+    border: 1px solid black;
+    outline: none;
+}
+.register-page .register-box .register-form input:active{
+    border: 1px solid blue;
+    
+} */
+
+.register-page .register-box .register-form button {
+    border-radius: 8px;
+    padding: 12px;
+    color: white;
+    background-color: blue;
+    outline: none;
+    border: none;
+    width: 100%;
+    max-width: 200px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.register-page .register-box .register-form button:hover {
+    background-color: darkblue;
+}
+
+
+
+/* input effect */
+.input-effect-div {
+    float: left;
+    width: 100%;
+    position: relative;
+}
+
+.effect-20 {
+    border: 1px solid #ccc;
+    transition: 0.4s;
+    background: transparent;
+    width: calc(100%);
+    height: 54px;
+    border-radius: 4px;
+    padding-left: 20px;
+}
+.effect-20::placeholder{
+    color: transparent;
+}
+
+.effect-20:focus {
+    border: 1px solid transparent;
+    outline: none;
+}
+.focus-border{
+    width: 100%;
+}
+.effect-20:not(:placeholder-shown)~.focus-border:before,
+.effect-20:not(:placeholder-shown)~.focus-border:after,
+.effect-20~.focus-border:before,
+.effect-20~.focus-border:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    border-radius: 8px;
+    background-color: blue;
+    transition: 0.3s;
+}
+.effect-20:not(:placeholder-shown)~.focus-border:after,
+.effect-20~.focus-border:after {
+    top: auto;
+    bottom: 0;
+    left: auto;
+    right: 0;
+}
+.effect-20:not(:placeholder-shown)~.focus-border i:before,
+.effect-20:not(:placeholder-shown)~.focus-border i:after,
+.effect-20~.focus-border i:before,
+.effect-20~.focus-border i:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 0;
+    background-color: blue;
+    border-radius: 8px;
+    transition: 0.4s;
+}
+
+.effect-20:not(:placeholder-shown)~.focus-border i::after,
+.effect-20~.focus-border i:after {
+    left: auto;
+    right: 0;
+    top: auto;
+    bottom: 0;
+}
+
+.effect-20:not(:placeholder-shown)~.focus-border:before,
+.effect-20:not(:placeholder-shown)~.focus-border:after,
+.effect-20:focus~.focus-border:before,
+.effect-20:focus~.focus-border:after{
+    width: 100%;
+    transition: 0.3s;
+}
+
+.effect-20:focus~.focus-border i:before,
+.effect-20:focus~.focus-border i:after,
+.effect-20:not(:placeholder-shown)~.focus-border i:before,
+.effect-20:not(:placeholder-shown)~.focus-border i:after{
+    height: 100%;
+    transition: 0.4s;
+}
+
+.effect-20~label {
+    position: absolute;
+    left: 14px;
+    width: 100%;
+    top: 14px;
+    color: #aaa;
+    transition: 0.3s;
+    z-index: -1;
+    letter-spacing: 0.5px;
+}
+.effect-20:not(:placeholder-shown)~label,
+.effect-20:focus~label,
+.has-content.effect-20~label {
+    top: -24px;
+    left: 2px;
+    font-size: 14px;
+    color: blue;
+    transition: 0.3s;
+}
+
+.register-overlay{
+    position: fixed; /* Sit on top of the page content */
+    display: flex; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3); /* Black background with opacity */
+    z-index: 52; /* Specify a stack order in case you're using a different order for other elements */
+    justify-content: center;
+    align-items: baseline;
+    
+}
+.popup-register{
+    transform: translateY(100%);
+    transition: all 2s ease-out;
+}
+
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.drop-animation{
+    animation-name: dropFromTop;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+}
+
+@keyframes dropFromTop {
+    0%{
+        margin-top: -150px;
+
+    }
+    10%{
+        margin-top: -120px;
+    }
+    20%{
+        margin-top: -90px;
+       
+    }
+    30%{
+        margin-top: -30px;
+       
+    }
+    40%{
+        margin-top:  70px;
+        height: 150px;
+    }
+    50%{
+        margin-top: -20px;
+        
+    }
+    60%{
+        margin-top: -40px;
+    }
+    70%{
+        margin-top: -60px;
+        
+    }
+    80%{
+        margin-top: -40px;
+       
+    }
+    90%{
+        margin-top: -20px;
+       
+    }
+    100%{
+        margin-top: 0px;
+        
+    }
+}
+
+.text-roll-animation{
+    width:100%;  
+    display:flex;
+    justify-content:center;
+    text-align:center;
+  }
+  .register-text-animation{
+    text-align:center;
+    color: #F1FAEE; 
+  }
+  .register-text-animation .label{
+    font-size: 2.5rem;
+    text-shadow: 4px 6px 0px rgba(0,0,0,0.2);
+    text-align: start;
+    font-weight: 700;
+  }
+  
+  .roller{
+    height: 4.125rem;
+    line-height: 4rem;
+    position: relative;
+    overflow: hidden; 
+    width: 100%;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: #1D3557;
+    font-family:  Tahoma;
+    font-weight: 900;
+  }
+  
+  
+  #spare-time{
+    font-size: 1rem;
+    font-style: italic;
+    letter-spacing: 1rem;
+    margin-top: 0;
+    color: #A8DADC;
+    
+  }
+  
+  .roller #rolltext {
+    position: absolute;
+    top: 0;
+    animation: slide 5s infinite;  
+  }
+  
+  @keyframes slide {
+    0%{
+      top:0;
+    }
+    25%{
+      top: -4rem;    
+    }
+    50%{
+      top: -8rem;
+    }
+    75%{
+      top: -12.25rem;
+    }
+  }
+  
+  @media screen and (max-width: 600px){
+    h1{
+    text-align:center;
+    text-transform: uppercase;
+    color: #F1FAEE; 
+    font-size: 2.125rem;
+    font-family: monospace;
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.5);
+  }
+    
+    .roller{
+    height: 2.6rem; 
+    line-height: 2.125rem;  
+    }
+    
+    #spare-time {
+      font-size: 1rem;
+      letter-spacing: 0.1rem;
+    }
+    
+    .roller #rolltext {  
+    animation: slide-mob 5s infinite;  
+  }
+    
+    @keyframes slide-mob {
+    0%{
+      top:0;
+    }
+    25%{
+      top: -2.125rem;    
+    }
+    50%{
+      top: -4.25rem;
+    }
+    72.5%{
+      top: -6.375rem;
+    }
+  }
+  }

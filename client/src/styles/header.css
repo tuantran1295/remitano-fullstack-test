@@ -1,0 +1,15 @@
+.user-action-link:hover,.video-title:hover{
+    background-image: linear-gradient( -225deg, #18A8D8 0%, #0047AB 29%, #40E0D0 67%, #685897 77%, #3F00FF 85%, #1F4AB8 100% );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 150% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 1s linear infinite;
+}
+.shadow-header{
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}

@@ -1,0 +1,16 @@
+.video-description{
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}
+.video-item{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.video-item:hover{
+    box-shadow: rgba(9, 24, 221, 0.35) 0px 10px 20px;
+}
+.line-clamp-3{
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}
