@@ -30,11 +30,11 @@ CREATE TABLE `video` (
 --
 
 INSERT INTO `video` (`id`, `url`, `video_id`) VALUES
-(22, 'https://www.youtube.com/watch?v=aqz-KE-bpKQ', 'LZN4I3K8SC0'),
-(23, 'https://www.youtube.com/watch?v=szhyWmrsQNQ', 'WzDNlilVnXU'),
-(25, 'https://www.youtube.com/watch?v=7pxqOmxPgPM', 'DZyeMmeQo-U'),
-(27, 'https://www.youtube.com/watch?v=MmHqthzJER4', 'oJeQ0UUrz7M'),
-(28, 'https://www.youtube.com/watch?v=8pDqJVdNa44', 'PaJQjkOVf34');
+(22, 'https://www.youtube.com/watch?v=aqz-KE-bpKQ', 'aqz-KE-bpKQ'),
+(23, 'https://www.youtube.com/watch?v=szhyWmrsQNQ', 'szhyWmrsQNQ'),
+(25, 'https://www.youtube.com/watch?v=7pxqOmxPgPM', '7pxqOmxPgPM'),
+(27, 'https://www.youtube.com/watch?v=MmHqthzJER4', 'MmHqthzJER4'),
+(28, 'https://www.youtube.com/watch?v=8pDqJVdNa44', '8pDqJVdNa44');
 
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);

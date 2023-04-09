@@ -21,17 +21,35 @@ const MYSQL_PASSWORD = process.env.MYSQL_PASSWORD;
 
 const ACCESS_TOKEN_SECRET =  crypto.randomBytes(64).toString('hex');
 
-const connection = mysql.createConnection({
+// var connection = mysql.createConnection({
+var connection = mysql.createPool({ // create connection pooling to prevent app from crash
   host: `${MYSQL_HOST}`,
   user: `${MYSQL_USER}`,
   password: `${MYSQL_PASSWORD}`,
   database: `${MYSQL_DATABASE_NAME}`
 });
 
-connection.connect((err) => {
-  if (err) throw err;
-  console.log('Connected!');
-});
+function handleDisconnect() {
+  connection.getConnection(function(err) {              // The server is either down
+    if(err) {                                     // or restarting (takes a while sometimes).
+      console.log('error when connecting to db:', err);
+      setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
+    }                                     // to avoid a hot loop, and to allow our node script to
+  });                                     // process asynchronous requests in the meantime.
+                                          // If you're also serving http, display a 503 error.
+  connection.on('error', function(err) {
+    console.log('db error', err);
+    if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
+      handleDisconnect();                         // lost due to either server restart, or a
+    } else {                                      // connnection idle timeout (the wait_timeout
+      throw err;                                  // server variable configures this)
+    }
+  });
+
+  console.log('Connected to DB!');
+}
+
+handleDisconnect();
 
 // set up body parser middleware
 app.use(bodyParser.json());
@@ -43,7 +61,6 @@ app.get('/', (req, res) => {
 
 
 // set up CORS middleware
-
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
@@ -52,7 +69,7 @@ app.use((req, res, next) => {
 });
 
 app.use(cors({
-  origin: ['https://funny-movies-7dsu.vercel.app','https://funny-movies-7dsu.vercel.app/*' ]
+  origin: ['https://friendly-kelpie-68ab3f.netlify.app/','https://friendly-kelpie-68ab3f.netlify.app/*' ]
 }));
 
 
@@ -187,7 +204,7 @@ app.get('/video/:videoId', (req, res) => {
 });
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 80;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
